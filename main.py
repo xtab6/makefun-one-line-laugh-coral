@@ -1,8 +1,12 @@
+"""One Line, One Laugh entry: write exactly one funny line to entry.txt."""
+
 import os
 
 LINE = "My car's check-engine light has been on so long I've started treating it as ambient lighting."
 
 def main():
+    if not 1 <= len(LINE) <= 200:
+        raise SystemExit("entry line must be 1-200 characters")
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     for name in os.listdir(out_dir):
